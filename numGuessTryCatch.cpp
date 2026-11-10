@@ -14,18 +14,28 @@ int main() {
     std::cout << "Guess a number between 0 and 9: ";
     std::cin >> userGuess;
 
-    int randomVariable = (std::rand() % 9) + 1;
+    // declare integer to hold random number
+
+    int someRandomNumber;
+
+    // initialize random seed
+
+    srand((unsigned)time(NULL));
+
+    // generate a random number between 0 and 9
+
+    someRandomNumber = rand() % 10;
 
     try {
         int userGuessInt = std::stoi(userGuess);
 
-        if (userGuessInt == randomVariable) {
+        if (userGuessInt == someRandomNumber) {
             std::cout << "You have guessed correctly!" << std::endl;
         }
 
-        if (userGuessInt != randomVariable) {
+        if (userGuessInt != someRandomNumber) {
             std::cout << "You have guessed incorrectly. The correct number was "
-                      << randomVariable << std::endl;
+                      << someRandomNumber << std::endl;
         }
     } catch (std::invalid_argument) {
         std::cout
